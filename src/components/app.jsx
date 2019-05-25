@@ -5,16 +5,14 @@ import SearchBar from './search_bar.jsx';
 import Gif from './gif.jsx';
 import GifList from './gif_list.jsx';
 
-
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       gifs: [],
-      selectedGif: "2FhASosZtLUPe"
+      selectedGifId: "clH86Ymwn1Fa8"
     };
-    this.search('homer think');
   }
 
   search = (query) => {
@@ -29,6 +27,9 @@ class App extends Component {
     });
   }
 
+  selectGif = (id) => {
+    this.setState({ selectedGifId: id });
+  }
 
   render() {
     return (
@@ -36,11 +37,11 @@ class App extends Component {
         <div className="left-scene">
           <SearchBar searchFun={this.search} />
           <div className="selected-gif">
-            <Gif id={this.state.selectedGif} />
+            <Gif id={this.state.selectedGifId} />
           </div>
         </div>
         <div className="right-scene">
-          <GifList gifs={this.state.gifs} />
+          <GifList gifs={this.state.gifs} selectGif={this.selectGif} />
         </div>
       </div>
     );
