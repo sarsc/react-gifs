@@ -10,16 +10,21 @@ class App extends Component {
   // constructor(props) {
   //   super(props);
   // }
-
   render() {
+    const gifs = [
+      { id: "wqb5K5564JSlW" },
+      { id: "SxKjln0CeeRck" }
+    ];
     return (
       <div>
         <div className="left-scene">
           <SearchBar />
-          <Gif />
+          <div className="selected-gif">
+            <Gif id="2FhASosZtLUPe" />
+          </div>
         </div>
         <div className="right-scene">
-          <GifList />
+          <GifList gifs={gifs} />
         </div>
       </div>
     );
