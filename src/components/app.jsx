@@ -29,11 +29,12 @@ class App extends Component {
     });
   }
 
+
   render() {
     return (
       <div>
         <div className="left-scene">
-          <SearchBar />
+          <SearchBar searchFun={this.search} />
           <div className="selected-gif">
             <Gif id={this.state.selectedGif} />
           </div>
